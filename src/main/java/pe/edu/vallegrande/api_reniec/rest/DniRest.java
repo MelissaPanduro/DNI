@@ -1,6 +1,5 @@
 package pe.edu.vallegrande.api_reniec.rest;
 
-import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import pe.edu.vallegrande.api_reniec.model.Dni;
@@ -16,8 +15,14 @@ public class DniRest {
     public DniRest(DniService service) {
         this.service = service;
     }
+
     @GetMapping
     public Flux<Dni> getAllIpQueries() {
+        return service.getAll();
+    }
+
+    @GetMapping("/all")
+    public Flux<Dni> getAllDniRecords() {
         return service.getAll();
     }
 
